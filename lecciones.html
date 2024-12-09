@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lecciones</title>
+<link rel="icon" href="iconoV.jpg">
+  <style>
+    body {
+      background: black;
+    }
+    .GranC2 {
+      width: 90%;
+      height: 1100px;
+      background: #1B2ACA;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .CPV {
+      background: white;
+      width: 100%;
+      height: 130px;
+    }
+    .Texto {
+      font-size: 60px;
+      text-align: center;
+      color: black;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      background: black;
+     
+    }
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 30px;
+    }
+    .recuadros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 90px;
+    }
+    .recuadro {
+      width: 45%;
+      height: 150px;
+      background: white;
+      margin: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center; /* Centrar verticalmente */
+      justify-content: center; /* Centrar horizontalmente */
+      font-size: 24px; /* Tamaño de fuente más adecuado */
+    }
+    .recuadro:hover {
+      background: #061A5A;
+    }
+    .informacion {
+      display: none;
+      position: absolute;
+      background: white;
+      width: 80%;
+      height: auto; /* Cambiado a auto para adaptarse al contenido */
+      max-height: 500px;
+      overflow-y: auto; /* Permitir desplazamiento si el contenido es grande */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    button {
+      margin-top: 20px;
+      width: 20%;
+      height: 40px;
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="GranC2">
+    <div class="CPV">
+      <div class="Texto">
+        <img src="iconoV.jpg" width="90px" height="90px"> Cuenta Con Papá Vector
+      </div>
+      <div class="menu">
+        <a href="inicio.html">Inicio</a>
+        <a href="lecciones.html">Lecciones</a>
+        <a href="entrevista.html">Entrevista</a>
+      </div>
+    </div>
+    
+    
+    <div class="recuadros">
+      <div class="recuadro" onclick="mostrarInfo('info1')">Suma</div>
+      <div class="recuadro" onclick="mostrarInfo('info2')">Fraccion</div>
+      <div class="recuadro" onclick="mostrarInfo('info3')">Resta</div>
+      <div class="recuadro" onclick="mostrarInfo('info4')">Prismas</div>
+      <div class="recuadro" onclick="mostrarInfo('info5')">Multiplicación</div>
+      <div class="recuadro" onclick="mostrarInfo('info6')">Piramides</div>
+    </div>
+    <div id="info1" class="informacion">
+      <h2>Suma</h2>
+      <p>Para sumar, solo cuenta tus dedos, un dedo mas un dedo, son dos dedos, así las veces que se requieren, o hasta que se te acaben los dedos</p>
+      <button onclick="cerrarInfo('info1')">Cerrar</button>
+    </div>
+    <div id="info2" class="informacion">
+      <h2>Fracción</h2>
+      <p>Imagínate que hay un pastel o una pizza, lo que quieras, el número de arriba (Dividendo) dice en cuántas rebanadas se parte y el de abajo (Divisor) cuantas ya se comieron</p>
+      <button onclick="cerrarInfo('info2')">Cerrar</button>
+    </div>
+    <div id="info3" class="informacion">
+      <h2>Resta</h2>
+      <p>Tienes diez dedos, uno se fue al mercado y solo quedan nueve, solo cuenta hacia atras las veces que se requiere</p>
+      <button onclick="cerrarInfo('info3')">Cerrar</button>
+    </div>
+    <div id="info4" class="informacion">
+      <h2>Prismas</h2>
+      <p>Son dos polígonos planos iguales desde arriba y abajo, unidos por paredes, curiosamente todos terminan con "lar"</p>
+      <button onclick="cerrarInfo('info4')">Cerrar</button>
+    </div>
+    <div id="info5" class="informacion">
+      <h2>Multiplicación</h2>
+      <p>Para multiplicar toma un número, y sumalo por si mismo, de modo que 2 x 2 = 4 (dos mas dos es cuatro) 2 x 3 = 6 (dos mas dos cuatro, mas dos seis)</p>
+      <button onclick="cerrarInfo('info5')">Cerrar</button>
+    </div>
+    <div id="info6" class="informacion">
+      <h2>Pirámides</h2>
+      <p>Son cualquier forma geometrica plana que, termina en punta, es decir que va hacia arriba hasta que todos sus ángulos se juntan en un piquito</p>
+      <button onclick="cerrarInfo('info6')">Cerrar</button>
+    </div>
+  </div>
+
+  <script>
+    function mostrarInfo(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function cerrarInfo(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+</body>
+</html>

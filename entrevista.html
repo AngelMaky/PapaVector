@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrevista</title>
+<link rel="icon" href="iconoV.jpg">
+  <style>
+   #preguntas {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+#pregunta {
+  font-size: 36px;
+}
+
+#respuesta {
+  width: 50%;
+  height: 30px;
+  font-size: 24px;
+}
+
+button {
+  width: 20%;
+  height: 30px;
+  font-size: 18px;
+}
+   
+   body {
+      background: black;
+    }
+    .GranC {
+      width: 90%;
+      height: 1100px;
+      background: #1B2ACA;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .CPV {
+      background: white;
+      width: 100%;
+      height: 130px;
+    }
+    .Texto {
+      font-size: 60px;
+      text-align: center;
+      color: black;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      background: black;
+    }
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 30px;
+    }
+    .Izquierda{
+      background: #FFFFFF38;
+      width: 50%;
+      height: 900px;
+      margin-top: 50px;
+      display: flex;
+      margin-left: auto;
+    }
+    .img{
+      position: absolute;
+      margin-left: 50px;
+      margin-top: 35px;
+    }
+    .Derecha{
+      width: 43%;
+      height: 900px;
+      display: flex;
+      position: absolute;
+      margin-top: 180px;
+      background: white;
+    }
+    .Sis{
+      background: black;
+      width:100%;
+      height:100px;
+      color: white;
+      font-size: 40px;
+      text-align: center;
+      position: absolute;
+    }
+    button{
+      background: black;
+      color: white;
+      
+    }
+    
+   
+ </style>
+</head>
+<body>
+  <div class="GranC">
+    <div class="CPV">
+      <div class="Texto">
+        <img src="iconoV.jpg" width="90px" height="90px"> Cuenta Con Papá Vector
+      </div>
+      <div class="menu">
+        <a href="inicio.html">Inicio</a>
+        <a href="lecciones.html">Lecciones</a>
+        <a href="entrevista.html">Entrevista</a>
+      </div>
+    </div>
+    <div class="Derecha">
+      <div class="Sis">Encuesta De Conocimientos</div>
+      <div id="preguntas">
+        <p id="pregunta">¿Cuánto es 2 + 2?</p>
+	<form action="bdppv.php" method="POST">
+        <input type="number" id="respuesta" name="p1">
+        <button onclick="evaluar()" name="ingresar">Enviar</button>
+</form>
+        <div id="resultado"></div>
+      </div>
+    </div>
+    <div class="Izquierda">
+      <div class="img">
+        <img src="papaV.jpg" alt="" height="820px" width="360px">
+      </div>
+    </div>
+    <script>
+      let preguntas = [
+        { pregunta: "¿Cuánto es 2 + 2?", respuesta: 4 },
+        { pregunta: "¿Cuánto es 5 - 3?", respuesta: 2 },
+        { pregunta: "¿Cuánto es 4 * 5?", respuesta: 20 },
+        { pregunta: "¿Cuánto es 10 / 2?", respuesta: 5 },
+        { pregunta: "¿Cuánto es √16?", respuesta: 4 }
+      ];
+      let indice = 0;
+      let aciertos = 0;
+      
+      function mostrarPregunta() {
+        document.getElementById("pregunta").innerHTML = preguntas[indice].pregunta;
+      }
+      
+      function evaluar() {
+        let respuesta = parseInt(document.getElementById("respuesta").value);
+        if (respuesta === preguntas[indice].respuesta) {
+          aciertos++;
+        }
+        indice++;
+        if (indice < preguntas.length) {
+          mostrarPregunta();
+          document.getElementById("respuesta").value = "";
+        } else {
+          evaluarResultado();
+        }
+      }
+     
+      function evaluarResultado() {
+        let resultado = "";
+        if (aciertos === 5) {
+          resultado = "Muy bien, eres muy inteligente";
+        } else if (aciertos === 4) {
+          resultado ="Bien, casi todas";
+        } else if (aciertos === 3) {
+          resultado = "Nada mal, pero estudia un poco más";
+        } else if (aciertos === 2) {
+          resultado = "Debes estudiar un poquito más";
+        } else if (aciertos === 1) {
+          resultado = "¡Zaz! ponte a estudiar, en nuestras lecciones";
+        } else {
+          resultado = "Has matado a Papá Vector con tu ignorancia :("; 
+        }
+        document.getElementById("resultado").innerHTML = resultado;
+      }
+      
+      mostrarPregunta();
+     
+    </script>
+  </div>
+</body>
+</html>
